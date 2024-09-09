@@ -1,7 +1,7 @@
 name: project_color_palette
 description: "This package is a tool for collaboration between designers and Flutter developers. csv to color_palette"
 version: 0.0.1
-homepage: "https://github.com/aqoong/palette"
+homepage: "https://github.com/aqoong/aqoong-project_color_palette"
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
