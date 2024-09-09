@@ -1,0 +1,15 @@
+targets:
+  $default:
+    builders:
+      palette_generator:
+        generate_for:
+          - assets/*.csv
+
+builders:
+  palette_generator:
+    import: "package:palette/generator/palette_generator.dart"
+    builder_factories: ["paletteGeneratorBuilder"]
+    build_extensions: {".csv": [".g.dart"]}
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["csv|glob"]
