@@ -18,7 +18,6 @@ class PaletteGenerator extends Builder {
 
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    log.info('PaletteGenerator: Starting build process.');
     final csvFiles = await buildStep.findAssets(Glob('assets/**.csv')).toList();
 
     if (csvFiles.isEmpty) {
@@ -28,10 +27,10 @@ class PaletteGenerator extends Builder {
 
     final titleFilteredFiles = csvFiles.where((file) => file.pathSegments.last.contains('color')).toList();
 
-
     for (var csvFile in titleFilteredFiles) {
       try {
         if (buildStep.inputId.path == csvFile.path) {
+          log.info('PaletteGenerator: Starting build process.');
           await CsvToFile(buildStep: buildStep, csvAssetId: csvFile).csvContent();
         }
       } catch (e) {
