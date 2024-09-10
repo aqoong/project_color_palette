@@ -12,4 +12,4 @@ builders:
     build_extensions: {"assets/color_palette/{{}}.csv": ["lib/palette/{{}}.g.dart"]}
     auto_apply: dependents
     build_to: source
-    applies_builders: ["csv|glob"]
+    applies_builders: []
