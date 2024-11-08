@@ -4,5 +4,5 @@ import 'package:flutter/material.dart';
 /// From 'color_test.csv'
 /// color row length 1
 class ColorTest {
-  static const Color colorWhite = Color(0xFFFFFFFF);  //Comment test
+  static const Color colorWhite = Color(0xFFFFFFFF); //Comment test
 }

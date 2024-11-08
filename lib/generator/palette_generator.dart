@@ -8,7 +8,8 @@ import 'package:build/build.dart';
 import 'package:glob/glob.dart';
 import 'package:project_color_palette/generator/csv_to_file.dart';
 
-Builder paletteGeneratorBuilder(BuilderOptions options) => PaletteGenerator(options: options);
+Builder paletteGeneratorBuilder(BuilderOptions options) =>
+    PaletteGenerator(options: options);
 
 class PaletteGenerator extends Builder {
   // final String outputFilePath = 'lib/color_palette.g.dart';
@@ -25,13 +26,16 @@ class PaletteGenerator extends Builder {
       return;
     }
 
-    final titleFilteredFiles = csvFiles.where((file) => file.pathSegments.last.contains('color')).toList();
+    final titleFilteredFiles = csvFiles
+        .where((file) => file.pathSegments.last.contains('color'))
+        .toList();
 
     for (var csvFile in titleFilteredFiles) {
       try {
         if (buildStep.inputId.path == csvFile.path) {
           log.info('PaletteGenerator: Starting build process.');
-          await CsvToFile(buildStep: buildStep, csvAssetId: csvFile).csvContent();
+          await CsvToFile(buildStep: buildStep, csvAssetId: csvFile)
+              .csvContent();
         }
       } catch (e) {
         log.warning(e);
@@ -41,6 +45,6 @@ class PaletteGenerator extends Builder {
 
   @override
   Map<String, List<String>> get buildExtensions => const {
-    "assets/color_palette/{{}}.csv": ["lib/palette/{{}}.g.dart"],
-  };
+        "assets/color_palette/{{}}.csv": ["lib/palette/{{}}.g.dart"],
+      };
 }
