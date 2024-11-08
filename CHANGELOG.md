@@ -8,3 +8,6 @@
 
 ## 1.0.1
 * update build.yaml, build process log
+
+## 1.0.2
+* add License info in README.md
